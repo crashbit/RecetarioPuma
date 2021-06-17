@@ -1,5 +1,6 @@
 class Recipe {
   String title;
+  String imageRecipe;
 
-  Recipe(this.title);
+  Recipe(this.title, this.imageRecipe);
 }

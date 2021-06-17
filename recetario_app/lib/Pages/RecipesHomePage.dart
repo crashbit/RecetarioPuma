@@ -10,11 +10,11 @@ class RecipesHomePage extends StatefulWidget {
 
 class _RecipesHomePageState extends State<RecipesHomePage> {
   static List<Recipe> muestras = [
-    Recipe("Mole con pollo"),
-    Recipe("Chilaquiles"),
-    Recipe("Tacos dorados"),
-    Recipe("Maruchan con suadero"),
-    Recipe("Taquitos de canasta")
+    Recipe("Mole con pollo", "assets/images/comida1.jpeg"),
+    Recipe("Chilaquiles", "assets/images/comida2.jpeg"),
+    Recipe("Tacos dorados", "assets/images/comida3.jpeg"),
+    Recipe("Maruchan con suadero", "assets/images/comida4.jpeg"),
+    Recipe("Taquitos de canasta", "assets/images/comida5.jpeg")
   ];
 
   @override
@@ -36,6 +36,11 @@ class _RecipesHomePageState extends State<RecipesHomePage> {
 
 Widget widgetRecipeCard(Recipe recipe) {
   return Card(
-    child: Text(recipe.title, style: TextStyle(fontSize: 20)),
+    child: Column(
+      children: <Widget>[
+        Image(image: AssetImage(recipe.imageRecipe)),
+        Text(recipe.title),
+      ],
+    ),
   );
 }
