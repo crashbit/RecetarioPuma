@@ -1,37 +1,40 @@
-## Recetario PUMA
+# Change log Recetario PUMA
 
-You can use the [editor on GitHub](https://github.com/crashbit/RecetarioPuma/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+- ### 15 / Junio / 2021
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+   Creación del código base del Recetario PUMA
 
-### Markdown
+- ### 16 / Junio / 2021
+   - Desarrollo del Modelo de datos para las recetas
+   - Despliegue de 5 titulos de recetas a través de un `ListView.Builder` usando un `Text` widget
+   - Desarrollo de una función para regresar un `Card` widget con un `Text` widget
+   - Creación del directorio ***assets*** en el directorio principal
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+![directory-assets-images.png](https://res.craft.do/user/full/84b48d19-7315-f096-324e-d6fa083511fa/doc/AD2DEDA0-6F40-43D0-8EDD-5F75EFA0B42C/DFA420C8-2897-4DC3-9843-4F20D70FC96A_2/directory-assets-images.png)
 
-```markdown
-Syntax highlighted code block
+   - Modificación del modelo de datos para manejar imágenes
 
-# Header 1
-## Header 2
-### Header 3
+```swift
+class Recipe {
+  String title;
+  String imageRecipe;
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+  Recipe(this.title, this.imageRecipe);
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+   - Modificación de la función widgetRecipeCard para desplgar una foto y un texto en un Card widget
 
-### Jekyll Themes
+```swift
+Widget widgetRecipeCard(Recipe recipe) {
+  return Card(
+    child: Column(
+      children: <Widget>[
+        Image(image: AssetImage(recipe.imageRecipe)),
+        Text(recipe.title),
+      ],
+    ),
+  );
+}
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/crashbit/RecetarioPuma/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
