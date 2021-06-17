@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Recetario PUMA
 
 You can use the [editor on GitHub](https://github.com/crashbit/RecetarioPuma/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
