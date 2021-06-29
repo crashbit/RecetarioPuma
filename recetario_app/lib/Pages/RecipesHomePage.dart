@@ -36,11 +36,20 @@ class _RecipesHomePageState extends State<RecipesHomePage> {
 
 Widget widgetRecipeCard(Recipe recipe) {
   return Card(
-    child: Column(
-      children: <Widget>[
-        Image(image: AssetImage(recipe.imageRecipe)),
-        Text(recipe.title),
-      ],
+    elevation: 5.0,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    child: Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: <Widget>[
+          Image(image: AssetImage(recipe.imageRecipe)),
+          SizedBox(
+            height: 15.0,
+          ),
+          Text(recipe.title,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+        ],
+      ),
     ),
   );
 }
