@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recetario/Model/Recipe.dart';
+import 'package:recetario/Pages/RecipeDetailPage.dart';
 
 class RecipesHomePage extends StatefulWidget {
   RecipesHomePage({Key? key}) : super(key: key);
@@ -27,7 +28,19 @@ class _RecipesHomePageState extends State<RecipesHomePage> {
           child: ListView.builder(
             itemCount: muestras.length,
             itemBuilder: (BuildContext context, int index) {
-              return widgetRecipeCard(muestras[index]);
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return RecipeDetailPage();
+                      },
+                    ),
+                  );
+                },
+                child: widgetRecipeCard(muestras[index]),
+              );
             },
           ),
         ));
