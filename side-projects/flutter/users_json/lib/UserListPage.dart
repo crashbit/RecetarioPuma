@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:users_json/Models/User.dart';
 import 'package:users_json/Provider/FileJson.dart';
+import 'package:users_json/Provider/NetworkJson.dart';
 
 class UserList extends StatefulWidget {
   UserList({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _UserListState extends State<UserList> {
         title: Text("User List"),
       ),
       body: FutureBuilder<List<User>>(
-        future: readJsonFile(),
+        future: getUsers(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             print(snapshot);
@@ -33,9 +34,8 @@ class _UserListState extends State<UserList> {
             );
           } else {
             print("No hay informacion");
-            return Text("No data");
+            return Center(child: CircularProgressIndicator());
           }
-          return Center(child: CircularProgressIndicator());
         },
       ),
     );
