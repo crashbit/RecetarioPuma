@@ -34,7 +34,9 @@ class _RecipesHomePageState extends State<RecipesHomePage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return RecipeDetailPage();
+                        return RecipeDetailPage(
+                          recipe: muestras[index],
+                        );
                       },
                     ),
                   );

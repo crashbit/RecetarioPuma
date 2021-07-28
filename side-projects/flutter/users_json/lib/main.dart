@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:users_json/UserListPage.dart';
 
 void main() {
   runApp(Main());
@@ -12,6 +13,6 @@ class Main extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Users Json List",
-        home: Text("Users:"));
+        home: UserList());
   }
 }
