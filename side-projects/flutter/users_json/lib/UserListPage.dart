@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:users_json/Models/User.dart';
 import 'package:users_json/Provider/FileJson.dart';
 import 'package:users_json/Provider/NetworkJson.dart';
+import 'package:users_json/Provider/Tools.dart';
 
 class UserList extends StatefulWidget {
   UserList({Key? key}) : super(key: key);
@@ -12,17 +13,31 @@ class UserList extends StatefulWidget {
 
 class _UserListState extends State<UserList> {
   @override
+  var title = "";
+  var saved = false;
+
   void initState() {
-    // TODO: implement initState
     super.initState();
     readJsonFile();
+
+    setState(() {
+      Tools.instance.loadData("title").then((value) {
+        if (value == 0) {
+          this.title = "Nos regreso un valor nulo";
+        } else {
+          this.title = value.toString();
+        }
+        print(this.title);
+      });
+      title = "nuevo titulo";
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("User List"),
+        title: Text(title),
       ),
       body: FutureBuilder<List<User>>(
         future: getUsers(),
