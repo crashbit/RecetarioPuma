@@ -13,23 +13,21 @@ class UserList extends StatefulWidget {
 
 class _UserListState extends State<UserList> {
   @override
-  var title = "";
+  var title = "no hay titulo";
   var saved = false;
 
   void initState() {
     super.initState();
     readJsonFile();
 
-    setState(() {
-      Tools.instance.loadData("title").then((value) {
-        if (value == 0) {
-          this.title = "Nos regreso un valor nulo";
-        } else {
-          this.title = value.toString();
+    Tools.instance.loadData("title").then((value) {
+      setState(() {
+        title = value.toString();
+        if (title == "0") {
+          title = "No se guardo ningún dato";
+          Tools.instance.saveData("title", 582021);
         }
-        print(this.title);
       });
-      title = "nuevo titulo";
     });
   }
 
